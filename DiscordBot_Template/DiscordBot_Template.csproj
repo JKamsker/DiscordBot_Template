@@ -23,6 +23,9 @@
 
 
   <ItemGroup>
+    <None Update="configuration.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="configuration.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
