@@ -55,7 +55,7 @@ namespace CoderDojo_Discordbot
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandlingService>()
                 .AddSingleton<DiscordLoggingService>()
-                .AddScoped<CatService>()
+        
                 ;
 
             serviceCollection.Configure<DiscordSettings>(configuration.GetSection("Discord"));
