@@ -1,5 +1,6 @@
-﻿using System.Threading.Tasks;
-using Discord.Commands;
+﻿using Discord.Commands;
+
+using System.Threading.Tasks;
 
 namespace DiscordBot.Modules
 {
@@ -9,12 +10,6 @@ namespace DiscordBot.Modules
         public async Task TestCommandAsync()
         {
             await ReplyAsync("Pong!");
-        }
-
-        [Command("awesome")]
-        public async Task AwesomeCommand()
-        {
-            await ReplyAsync("Awesome!");
         }
     }
 }
