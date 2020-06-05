@@ -31,4 +31,14 @@
     </None>
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Modules\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\DiscordBot.Modules\DiscordBot.Modules.csproj" />
+  </ItemGroup>
+
 </Project>

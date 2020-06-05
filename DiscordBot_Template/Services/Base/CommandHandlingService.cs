@@ -80,11 +80,19 @@ namespace CoderDojo_Discordbot.Services
         public async Task InitializeAsync()
         {
             // Register modules that are public and inherit ModuleBase<T>.
-            var modules = (await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services)).ToList();
-            if (modules.Any())
+
+            foreach (var item in AppDomain.CurrentDomain.GetAssemblies().Append(Assembly.Load("DiscordBot.Modules")))
             {
+                var modules = (await _commands.AddModulesAsync(item, _services)).ToList();
+                if (modules.Count == 0)
+                {
+                    continue;
+                }
+
                 _logger.Log(LogLevel.Information, $"Added {modules.Count} modules. ({string.Join('|', modules.Select(m => m.Name))})");
             }
+
+            _logger.Log(LogLevel.Information, $"Modules initialized");
         }
 
         public async Task MessageReceivedAsync(SocketMessage rawMessage)

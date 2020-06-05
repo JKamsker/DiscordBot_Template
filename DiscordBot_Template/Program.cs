@@ -54,9 +54,7 @@ namespace CoderDojo_Discordbot
                 .AddSingleton<DiscordSocketClient>()
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandlingService>()
-                .AddSingleton<DiscordLoggingService>()
-        
-                ;
+                .AddSingleton<DiscordLoggingService>();
 
             serviceCollection.Configure<DiscordSettings>(configuration.GetSection("Discord"));
 
@@ -65,7 +63,7 @@ namespace CoderDojo_Discordbot
 
         private static IConfiguration GetConfiguration()
         {
-            var environmentName = Environment.GetEnvironmentVariable("Hosting:Environment");
+            var environmentName = Environment.GetEnvironmentVariable("Environment");
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
